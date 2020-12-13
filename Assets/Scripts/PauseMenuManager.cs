@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class PauseMenuManager : MonoBehaviour
     void Start()
     {
         pausePanel.SetActive(false);
+
+        float value = PlayerPrefs.GetFloat(AudioManager.VOLUME_LEVEL_KEY, AudioManager.DEFAULT_VOLUME);
+        pausePanel.GetComponentInChildren<Slider>().value = value;
+
         DontDestroyOnLoad(gameObject);
     }
 
