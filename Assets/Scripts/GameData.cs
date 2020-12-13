@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameData : MonoBehaviour
 {
-    public static float gamePlayStart { get; set; }
+    public static float GamePlayStart { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,6 @@ public class GameData : MonoBehaviour
     {
         //Debug.Log(Time.time);
         //Debug.Log(gamePlayStart);
-        Debug.Log("Player started at " + gamePlayStart + " seconds.");
+        Debug.Log("Player started at " + GamePlayStart + " seconds.");
     }
 }

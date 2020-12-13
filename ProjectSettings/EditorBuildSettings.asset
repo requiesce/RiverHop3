@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestLevel.unity
     guid: 637ab9b94d66249418eba3cdbff584d4
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 8d3f76c9ad5c3f34fa34921b07af9898
   m_configObjects: {}

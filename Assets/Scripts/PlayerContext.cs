@@ -34,7 +34,7 @@ public class RiverState : PlayerState
     public RiverState(NetworkBehaviour thisObj) : base(thisObj)
     {
         stateName = "RiverLevel";
-        GameData.gamePlayStart = Time.time;
+        GameData.GamePlayStart = Time.time;
     }
 
     public override void Start()
@@ -222,6 +222,12 @@ public class ForestState : PlayerState
             //lookTarget.position = other.transform.position;
             thisObject.StartCoroutine(LookAndLookAway(lookTarget.position, other.transform.position));
         }
+        else if (other.CompareTag("exit"))
+        {
+            NetworkManager networkManager = GameObject.Find("networkManager").GetComponent<NetworkManager>();
+            networkManager.ServerChangeScene("EndScene");
+        }
+   
     }
 
     public override void OnTriggerExit(Collider other)
@@ -271,8 +277,15 @@ public class PlayerContext : NetworkBehaviour
         {
             currentState = new ForestState(this);
         }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
 
-        currentState.Start();
+        if (currentState != null)
+        {
+            currentState.Start();
+        }
     }
 
     // Update is called once per frame
