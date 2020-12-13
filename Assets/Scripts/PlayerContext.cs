@@ -34,6 +34,7 @@ public class RiverState : PlayerState
     public RiverState(NetworkBehaviour thisObj) : base(thisObj)
     {
         stateName = "RiverLevel";
+        GameData.gamePlayStart = Time.time;
     }
 
     public override void Start()
